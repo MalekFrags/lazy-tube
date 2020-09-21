@@ -1,0 +1,28 @@
+﻿API-KEY: AIzaSyAM3YG7QAGmwiz36vKksbalOwKFKGisxVk
+LOVED_ARTISTS: 
+HATED_ARTISTS: 
+CHANNELS_TO_FOLLOW: {channel link}, {type of videos}, #NAME_CHANNEL
+channel/UCSJ4gkVC6NrvII8umztf0Ow, Music: Chill / Lo-Fi / Feels / Sad, #ChilledCow 
+channel/UC0fiLCwTmAukotCXYnqfj0A, Music: Chill / Lo-Fi / Feels / Sad, #the bootleg boy 
+channel/UCIZHhAFVeEmBXJwRinIImXg, Music: Soft Rock / Emo / Chill / Hard Rock / Metal / Feels / Sad, #sad chɨll 
+channel/UC9qIyFas1B3X90Su4TfJoFQ, Music: Emo Rock / Emo / Hard Rock / Rap / Sad, #Itami
+channel/UCUcqFFaxU7bUTd9SNuwoNRA, Music Rock / Hard Rock / Metal / Rap, #DarkTones
+channel/UCwpkceoj8LqJetYfgOzLLfg, Music: Chill / Lo-Fi / Feels, #Ikigai 
+channel/UC4X7J9D6VbTIwnFDFNkfQ1A, Music: Chill / Lo-Fi / Feels / Hip-Hop, #Ambition 
+channel/UCp0gATorETNZ6ttOTMeV7jA, Music: Soft Rock / Emo / Chill / Hard Rock / Metal / Feels / Rap / Sad, #Promoting Sounds 
+channel/UCma6cm3vTc_bq4L6T_fRaeQ, Music: Hip-Hop / Rap / R&B / Alternative / Sad, #RappyTracks
+channel/UC-ciXrv4h_IE3ga1dMfTUdA, Music: Soft Rock / Emo / Chill / Hard Rock / Metal / Feels / Sad, #scroll
+channel/UCV3NVUKyS4U31Usa2Ezof9A, Music: Soft Rock / Emo / Chill / Hard Rock / Metal / Feels / Sad, #Toxic
+channel/UCkQ62tvPlVVb2WLppjRfPdQ, Music: Soft Rock / Emo / Chill / Hard Rock / Metal / Feels / Sad, #ＴＲＡＳＨ
+channel/UC6TGtNUDnhwZAw-MNZiYoAw, Music: Soft Rock / Emo / Chill / Hard Rock / Metal / Feels / Sad, #Trash Vibes Forever
+channel/UC9uLMAmdGQaeLPHAOqkYlrw, Music: Chill / Lo-Fi / Feels / Hip-Hop, #AnimeVibe 
+channel/UC7tdoGx0eQfRJm9Qj6GCs0A, Music: Chill / Lo-Fi / Feels / Sad, #nourish. 
+channel/UCL25rDdQtKGs2r7a9rbuNYg, Music: Power Metal / Heavy Metal, #Powerwolf 
+channel/UCoP2nmYSKQ0oisOGCLmPLcQ,  Music: Chill / Lo-Fi / Feels / Sad, #NEOTIC
+channel/UCHnyfMqiRRG1u-2MsSQLbXA, Science; Education, #Veritasium 
+channel/UCOa-zIys4wcrsGPMvvd6Syw, Music: Chill / Lo-Fi / Feels / Sad, #Dreamwave 
+channel/UCDCcp-FCOHnUl_tRnoc6hZw, Music: Chill / Lo-Fi / Feels / Sad / Hip-Hop, #sunset 
+channel/UCKy7Adn5EQxsWHeGKxxzPJg, Music: Feels / Emo / Sad / Alternative, #TY
+channel/UCgIXzqXh-LXj6-Nb9ceOoEw, Music: Feels / Emo / Sad / Alternative, #TY
+channel/UCGY2E83PapX47mviakM_IpQ, Music: Chill / Lo-Fi / Feels / Sad, #Aminium Music 
+channel/UC8butISFwT-Wl7EV0hUK0BQ, Music: Chill / Lo-Fi / Feels / Sad, #nig
