@@ -67,28 +67,28 @@ def addLog(action):
 #Add the video Id in VideoLinks
 def addVideoLink(videoId, channelId):
     if(videoId != ''):
-        addLog('(type=FileManagementUI) Adding a Video...')
+        #addLog('(type=FileManagementUI) Adding a Video...')
         with open(VideoID_ChannelID_Path, 'a') as fileLog:
             fileLog.write(videoId + ' "-"-" ' + channelId + '\n')
-        addLog('(type=FileManagementUI) Added a Video')
+        #addLog('(type=FileManagementUI) Added a Video')
         
         delay(2)
         
-        addLog('(type=FileManagement, DiscordBot) Adding video link in "' + Discord_VideoID_Path + '"...')
+        #addLog('(type=FileManagement, DiscordBot) Adding video link in "' + Discord_VideoID_Path + '"...')
         with open(Discord_VideoID_Path, 'w') as Discord_VideoLinks:
             Discord_VideoLinks.write(videoId + '|send=F')
-        addLog('(type=FileManagement, DiscordBot) Added video link in "' + Discord_VideoID_Path + '"')
+        #addLog('(type=FileManagement, DiscordBot) Added video link in "' + Discord_VideoID_Path + '"')
         
         delay(2)
         
-        addLog('(type=FileManagement) Waiting for the bot confirmation...')
+        #addLog('(type=FileManagement) Waiting for the bot confirmation...')
         with open(Discord_VideoID_Path, 'r') as filetempVideo:
             tempVideo = filetempVideo.readlines()[0]
         while(tempVideo[-1:] == 'F'):
             with open(Discord_VideoID_Path, 'r') as filetempVideo:
                 tempVideo = filetempVideo.readlines()[0]
                 delay(1)
-        addLog('(type=FileManagement) The confirmation is accepted')
+        #addLog('(type=FileManagement) The confirmation is accepted')
            
 #get the API key from the data.txt file      
 def getAPI(link):
@@ -105,9 +105,9 @@ def Base_Information(f_s):
             fileLog.write('')
         with open(VideoID_ChannelID_Path, 'w') as fileLog:
             fileLog.write('')
-        addLog('(type=FileManagement) Getting API...')
+        #addLog('(type=FileManagement) Getting API...')
         api_key = getAPI(Data_Path)
-        addLog('(type=FileManagement) Got API')
+        #addLog('(type=FileManagement) Got API')
         
         return api_key
     
@@ -119,17 +119,17 @@ def Base_Information(f_s):
     
 #Send the request for googleapiclient.discovery.build
 def GoogleClientRequest(apiKey):
-    addLog('(type=GoogleRequest) Sending a Request to "googleapiclient.discovery.build"...')
+    #addLog('(type=GoogleRequest) Sending a Request to "googleapiclient.discovery.build"...')
     youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey = apiKey)
     time.sleep(5)
-    addLog('(type=GoogleRequest) Request Accepted from "googleapiclient.discovery.build"')
+    #addLog('(type=GoogleRequest) Request Accepted from "googleapiclient.discovery.build"')
     
     return youtube
 
 #Getting informations updated in Data.txt for optimizations
 def updatingData():
     
-    addLog('(type=FileManagement) Writing "tempData.txt"...')
+    #addLog('(type=FileManagement) Writing "tempData.txt"...')
     with open(Data_Path, 'r') as dataFile:
         readableDataFile = dataFile.readlines()
         
@@ -148,11 +148,11 @@ def updatingData():
                 dataTempFile.write('channel/' + getChannelID( line[:line.find(',')], youtube) + line[line.find(','):])
             
             lineCounter += 1
-    addLog('Writing complete "tempData.txt"')
+    #addLog('Writing complete "tempData.txt"')
     
     delay(1)
     
-    addLog('Updating "Data.txt" for optimization...')
+    #addLog('Updating "Data.txt" for optimization...')
     with open(TempData_Path, 'r') as dataTempFile:
         tempFile = dataTempFile.readlines()
         
@@ -160,7 +160,7 @@ def updatingData():
         dataFile.write('')
         for line in tempFile:
             dataFile.writelines(line)
-    addLog('Updating completed for "Data.txt"')
+    #addLog('Updating completed for "Data.txt"')
     
 #open data file and get all channel links
 def getChannelLinks(link):
@@ -177,95 +177,95 @@ def getChannelLinks(link):
 
 #Get list of the channel IDS
 def channelIds(youtube):
-    addLog('(type=FileManagement) Getting Channel IDs...')
+    #addLog('(type=FileManagement) Getting Channel IDs...')
     listLinks = getChannelLinks(Data_Path)
     listChannelId = []
     for half_link in listLinks:
         listChannelId.append(getChannelID(half_link, youtube))
     updatingData()
-    addLog('(type=FileManagement) Got all Channel IDs')
+    #addLog('(type=FileManagement) Got all Channel IDs')
     
     return listChannelId
 
 #Get channel - > channel ID
 def getChannelID(half_link, youtube):
     if('channel/' in half_link):
-        addLog('(type=FileManagement) Got Channel ID of ' + half_link[half_link.find('/') + 1:])
+        #addLog('(type=FileManagement) Got Channel ID of ' + half_link[half_link.find('/') + 1:])
         return half_link[half_link.find('/') + 1:]
     elif('c/' in half_link) or ('user/' in half_link):
         delay(0)
         username = half_link[half_link.find('/') + 1:]
-        addLog('(type=id) Getting a request of Channel ID of "' +  username + '" ...')
+        #addLog('(type=id) Getting a request of Channel ID of "' +  username + '" ...')
         delay(0)
         request = youtube.channels().list(
                                             part="id",
                                             forUsername=username
                                         )
-        addLog('(type=id) Got a request of Channel ID of "' + username + '" ...')
+        #addLog('(type=id) Got a request of Channel ID of "' + username + '" ...')
         
-        addLog('(type=id) Executing the Request of "youtube.activities" of [' + username +']...')
+        #addLog('(type=id) Executing the Request of "youtube.activities" of [' + username +']...')
         delay(0)
         response = request.execute()
         delay(0)
-        addLog('(type=snippet) Execution is done of [' + username +']')
+        #addLog('(type=snippet) Execution is done of [' + username +']')
         for items in response['items']:
             channelId = dict(items).get('id')
-        addLog('Got Channel ID of ' + channelId)
+        #addLog('Got Channel ID of ' + channelId)
     
         return channelId
 
 #getting snippet about a channel
 def getChannelResponse(channelID, times, youtube):
     delay(0)
-    addLog('(type=snippet) Sending a Request to "youtube.activities" of [' + channelID +']...')
+    #addLog('(type=snippet) Sending a Request to "youtube.activities" of [' + channelID +']...')
     delay(0)
     request = youtube.activities().list(part="snippet", channelId=channelID, publishedAfter=times)
     delay(0)
-    addLog('(type=snippet) Request Accepted from "youtube.activities" of [' + channelID +']')
+    #addLog('(type=snippet) Request Accepted from "youtube.activities" of [' + channelID +']')
 
-    addLog('(type=snippet) Executing the Request of "youtube.activities" of [' + channelID +']...')
+    #addLog('(type=snippet) Executing the Request of "youtube.activities" of [' + channelID +']...')
     delay(0)
     response = dict(request.execute())
     delay(0)
-    addLog('(type=snippet) Execution is done of [' + channelID +']')
+    #addLog('(type=snippet) Execution is done of [' + channelID +']')
     
     return response
 
 #getting contentDetails about a channel
 def getChannelResponseLink(channelID, times, youtube):
-    addLog('(type=contentDetails) Sending a Request to "youtube.activities" of [' + channelID +']...')
+    #addLog('(type=contentDetails) Sending a Request to "youtube.activities" of [' + channelID +']...')
     delay(0)
     request = youtube.activities().list(part="contentDetails", channelId=channelID, publishedAfter=times)
     delay(0)
-    addLog('(type=contentDetails) Request Accepted from "youtube.activities" of [' + channelID +']')
+    #addLog('(type=contentDetails) Request Accepted from "youtube.activities" of [' + channelID +']')
 
-    addLog('(type=contentDetails) Executing the Request of "youtube.activities" of [' + channelID +']...')
+    #addLog('(type=contentDetails) Executing the Request of "youtube.activities" of [' + channelID +']...')
     delay(0)
     response = dict(request.execute())
     delay(0)
-    addLog('(type=contentDetails) Execution is done of [' + channelID +']')
+    #addLog('(type=contentDetails) Execution is done of [' + channelID +']')
     
     return response 
 
 #get Video ID 
 #send discord condtion to send messege
 def Video_Information(listChannelId, times, youtube):
-    addLog('Checking started: Checking if any channel uploaded a video...')
+    #addLog('Checking started: Checking if any channel uploaded a video...')
     videoId = ''
     for channel_ID in listChannelId:
         delay(0)
         everything_response = getChannelResponseLink(channel_ID, times, youtube)
         for items in everything_response['items']:
             delay(0)
-            addLog('(type=contentDetails, upload) Getting a Video ID of "' + channel_ID + '" ...')
+            #addLog('(type=contentDetails, upload) Getting a Video ID of "' + channel_ID + '" ...')
             videoIds = str(dict(dict(items).get('contentDetails')).get('upload')).split("'")
             
             if(videoIds != ['None']):   
                 videoId = videoIds[3]
-                addLog('(type=contentDetails, upload) Got Video ID')
+                #addLog('(type=contentDetails, upload) Got Video ID')
                 delay(0)      
                 addVideoLink(videoId, channel_ID)
-    addLog('Checking is complete. Will check again after 250 Seconds...')
+    #addLog('Checking is complete. Will check again after 250 Seconds...')
 
 #get video id
 def getVideoId():
@@ -280,12 +280,12 @@ def MainFile():
     delay(5)
     #theTime = Base_Information('time')
     theTime = "2020-09-20T23:00:00.324259Z"
-    addLog("TIME SET : " + theTime)
+    #addLog("TIME SET : " + theTime)
     while(True):
         listChannelId = channelIds(youtube)
         Video_Information(listChannelId, theTime, youtube)
         theTime = Base_Information('time')
-        addLog("TIME SET : " + theTime)
+        #addLog("TIME SET : " + theTime)
         delay(250)
    
 def getPathsFixed(relativePath):

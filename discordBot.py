@@ -81,16 +81,16 @@ def sendMessage():
                 tempVideo = tempVideo[0]
                 while(True): 
                         while(tempVideo[-1:] == 'F'):          
-                                addLog('DISCORD BOT : Checking if sending message is available...')
+                                #addLog('DISCORD BOT : Checking if sending message is available...')
                                 channel = client.get_channel(751368446112956426)
                                 await channel.send('https://www.youtube.com/watch?v=' + tempVideo[:tempVideo.find('|')])
                                 
                                 
-                                addLog('(type=DiscordBot) Checking is complete')
+                                #addLog('(type=DiscordBot) Checking is complete')
                                 delay(1.5)
                                 with open(Discord_VideoID_Path , 'w') as filetempVideo:
                                         filetempVideo.write(tempVideo[:tempVideo.find('|')] + '|send=T')
-                                addLog('DISCORD BOT : Sent Video Link to #annoncements')
+                                #addLog('DISCORD BOT : Sent Video Link to #annoncements')
                                 
                                 
                                 delay(0)
